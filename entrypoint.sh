@@ -28,7 +28,9 @@ export VM_NAME=${VM_NAME}
 export LIBRARY_NAME=${LIBRARY_NAME}
 export LIBRARY_TEMPLATE=${LIBRARY_TEMPLATE}
 
+echo "Before GOVC about"
 govc about > /dev/null 2>&1
+echo "After GOVC about"
 if [ $? -eq 1 ]; then
     echo "Unable to login to vCenter Server ..."
     exit 1
