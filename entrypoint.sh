@@ -31,12 +31,13 @@ export LIBRARY_TEMPLATE=${LIBRARY_TEMPLATE}
 echo "Before GOVC about"
 govc about > /dev/null 2>&1
 echo "After GOVC about"
+
 if [ $? -eq 1 ]; then
     echo "Unable to login to vCenter Server ..."
     exit 1
 fi
 
-echo "Deploying new VM ${VM_NAME} from ${LIBRARY_NAME} Content Library ..."
+echo "Changed Deploying new VM ${VM_NAME} from ${LIBRARY_NAME} Content Library ..."
 govc library.deploy "${LIBRARY_NAME}/${LIBRARY_TEMPLATE}" "${VM_NAME}"
 
 echo "Powering on ${VM_NAME} ..."
